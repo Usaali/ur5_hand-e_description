@@ -1,7 +1,34 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="robotiq_hande"  params="prefix MAC">
-    <link name="${prefix}robotiq_hande_base_link">
+    <link name="${prefix}coupling_link">
+      <inertial>
+        <origin xyz="0 0 0.00835" rpy="0 0 0" />
+        <mass value="0.1305" />
+        <inertia ixx="1017560E-9" ixy="0" ixz="2235E-9" iyy="1028041E-9" iyz="0" izz="489810E-9" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://robotiq_hande_gripper_description/meshes/coupling.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Gazebo/Black">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://robotiq_hande_gripper_description/meshes/coupling.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="${prefix}coupling_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+    </gazebo>
+
+    <link name="${prefix}base_link">
       <inertial>
         <origin xyz="0 0 0.04607" rpy="0 0 0" />
         <mass value="0.86387" />
@@ -23,7 +50,7 @@
         </geometry>
       </collision>
     </link>
-    <gazebo reference="${prefix}robotiq_hande_base_link">
+    <gazebo reference="${prefix}base_link">
       <material>Gazebo/Black</material>
       <selfCollide>True</selfCollide>
     </gazebo>
@@ -82,17 +109,23 @@
       <selfCollide>True</selfCollide>
     </gazebo>
 
+    <joint name="${prefix}coupling_base" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0.092"/>
+      <parent link="${prefix}coupling_link"/>
+      <child link="${prefix}base_link"/>
+    </joint>
+
     <joint name="${prefix}joint_finger" type="prismatic">
-      <origin rpy="0 0 0" xyz="0 0 0.099"/>
-      <parent link="${prefix}robotiq_hande_base_link"/>
+      <origin rpy="0 0 0" xyz="0 0 0.014"/>
+      <parent link="${prefix}base_link"/>
       <child link="${prefix}left_finger"/>
       <axis xyz="-1 0 0"/>
       <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
     </joint>
 
     <joint name="robotiq_hande_base_to_${prefix}right_finger" type="prismatic">
-      <origin rpy="0 0 0" xyz="0 0 0.099"/>
-      <parent link="${prefix}robotiq_hande_base_link"/>
+      <origin rpy="0 0 0" xyz="0 0 0.014"/>
+      <parent link="${prefix}base_link"/>
       <child link="${prefix}right_finger"/>
       <axis xyz="1 0 0"/>
       <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>

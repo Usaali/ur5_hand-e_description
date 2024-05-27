@@ -30,13 +30,12 @@
      safety_limits="$(arg safety_limits)"
      safety_pos_margin="$(arg safety_pos_margin)"
      safety_k_position="$(arg safety_k_position)"/>
-   <!-- TODO: Add flange -->
    <!-- gripper -->
    <xacro:include filename="$(find robotiq_hande_gripper_description)/urdf/robotiq_hande.urdf.xacro"/>
    <xacro:robotiq_hande prefix="hande_" MAC="_000000000004"/>
    <joint name="tool0_robotiq_adapter" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.0167"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0035"/>
     <parent link="tool0"/>
-    <child link="hande_robotiq_hande_base_link"/>
+    <child link="hande_coupling_link"/>
   </joint>
 </robot>
