@@ -38,4 +38,11 @@
     <parent link="tool0"/>
     <child link="hande_coupling_link"/>
   </joint>
+  <!-- tool_center_point -->
+  <link name="tcp_link"/>
+  <joint name="tcp_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.157"/>
+    <parent link="tool0"/>
+    <child link="tcp_link"/>
+  </joint>
 </robot>
