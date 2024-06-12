@@ -332,5 +332,25 @@
       <parent link="${prefix}flange"/>
       <child link="${prefix}tool0"/>
     </joint>
+
+    <!-- virtual joints for RMPs-->
+    <link name="${prefix}virtual_shoulder_link"/>
+    <joint name="${prefix}virtual_shoulder_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 -0.135 0"/>
+        <parent link="${prefix}shoulder_link"/>
+        <child link="${prefix}virtual_shoulder_link"/>
+    </joint>
+    <link name="${prefix}virtual_forearm_link"/>
+    <joint name="${prefix}virtual_forearm_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.135"/>
+        <parent link="${prefix}forearm_link"/>
+        <child link="${prefix}virtual_forearm_link"/>
+    </joint>
+    <link name="${prefix}virtual_wrist_1_link"/>
+    <joint name="${prefix}virtual_wrist_1_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 -0.13"/>
+        <parent link="${prefix}wrist_1_link"/>
+        <child link="${prefix}virtual_wrist_1_link"/>
+    </joint>
   </xacro:macro>
 </robot>
