@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg robot_model)_robot">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur5e_robot">
 
    <!-- import main macro -->
    <xacro:include filename="$(find ur_description)/urdf/inc/ur_macro.xacro"/>
 
    <!-- parameters -->
-   <xacro:arg name="joint_limit_params" default=""/>
-   <xacro:arg name="kinematics_params" default=""/>
-   <xacro:arg name="physical_params" default=""/>
-   <xacro:arg name="visual_params" default=""/>
+   <xacro:arg name="joint_limit_params" default="$(find ur_description)/config/ur5e/joint_limits.yaml"/>
+   <xacro:arg name="kinematics_params" default="$(find ur_description)/config/ur5e/default_kinematics.yaml"/>
+   <xacro:arg name="physical_params" default="$(find ur_description)/config/ur5e/physical_parameters.yaml"/>
+   <xacro:arg name="visual_params" default="$(find ur_description)/config/ur5e/visual_parameters.yaml"/>
    <!-- legal values:
          - hardware_interface/PositionJointInterface
          - hardware_interface/VelocityJointInterface
@@ -34,15 +34,16 @@
    <xacro:include filename="$(find robotiq_hande_gripper_description)/urdf/robotiq_hande.urdf.xacro"/>
    <xacro:robotiq_hande prefix="hande_" MAC="_000000000004"/>
    <joint name="tool0_robotiq_adapter" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.0035"/>
-    <parent link="tool0"/>
-    <child link="hande_coupling_link"/>
-  </joint>
-  <!-- tool_center_point -->
-  <link name="tcp_link"/>
-  <joint name="tcp_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.157"/>
-    <parent link="tool0"/>
+     <origin rpy="0 0 0" xyz="0 0 0.0035"/>
+     <parent link="tool0"/>
+     <child link="hande_coupling_link"/>
+   </joint>
+  
+   <!-- tool_center_point -->
+   <link name="tcp_link"/>
+   <joint name="tcp_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.0615"/>
+    <parent link="hande_base_link"/>
     <child link="tcp_link"/>
-  </joint>
+   </joint>
 </robot>
