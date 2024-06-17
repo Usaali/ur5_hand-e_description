@@ -33,6 +33,7 @@
    <!-- gripper -->
    <xacro:include filename="$(find robotiq_hande_gripper_description)/urdf/robotiq_hande.urdf.xacro"/>
    <xacro:robotiq_hande prefix="hande_" MAC="_000000000004"/>
+
    <joint name="tool0_robotiq_adapter" type="fixed">
      <origin rpy="0 0 0" xyz="0 0 0.0035"/>
      <parent link="tool0"/>
@@ -42,8 +43,9 @@
    <!-- tool_center_point -->
    <link name="tcp_link"/>
    <joint name="tcp_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.0615"/>
-    <parent link="hande_base_link"/>
-    <child link="tcp_link"/>
+     <origin rpy="0 0 0" xyz="0 0 0.0615"/>
+     <parent link="hande_base_link"/>
+     <child link="tcp_link"/>
    </joint>
+   
 </robot>

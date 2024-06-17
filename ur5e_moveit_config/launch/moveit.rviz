@@ -419,7 +419,27 @@ Visualization Manager:
       Pitch: 0.034796617925167084
       Target Frame: base_link
       Yaw: 1.1799592971801758
-    Saved: ~
+    Saved:
+      - Class: rviz/Orbit
+        Distance: 1.6247738599777222
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: -0.47274431586265564
+          Y: 0.44264402985572815
+          Z: 0.49161893129348755
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: video
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.6747966408729553
+        Target Frame: <Fixed Frame>
+        Yaw: 2.7203965187072754
 Window Geometry:
   Displays:
     collapsed: false
