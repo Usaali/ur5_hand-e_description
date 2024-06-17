@@ -4,7 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="robotiq_hande" xmlns:xacro="http://ros.org/wiki/xacro">
-  <link name="hande_robotiq_hande_base_link">
+  <link name="hande_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.04607"/>
       <mass value="0.86387"/>
@@ -26,7 +26,7 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="hande_robotiq_hande_base_link">
+  <gazebo reference="hande_base_link">
     <material>Gazebo/Black</material>
     <selfCollide>True</selfCollide>
   </gazebo>

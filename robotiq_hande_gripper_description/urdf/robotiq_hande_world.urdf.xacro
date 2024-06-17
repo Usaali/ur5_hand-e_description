@@ -9,7 +9,7 @@
   <joint name="world_to_robotiq_adapter" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.5"/>
     <parent link="world"/>
-    <child link="hande_robotiq_hande_base_link"/>
+    <child link="hande_base_link"/>
   </joint>
 
   <gazebo>
