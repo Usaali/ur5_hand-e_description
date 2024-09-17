@@ -48,7 +48,7 @@
      <child link="tcp_link"/>
    </joint>
 
-    <!-- <xacro:if value="${$(arg robot_model)  == 'ur5e_robot'}"> -->
+    <xacro:if value="${'$(arg robot_model)' == 'ur5e_robot'}">
       <!-- virtual joints for RMPs-->
       <link name="virtual_shoulder_link"/>
       <joint name="virtual_shoulder_joint" type="fixed">
@@ -68,5 +68,5 @@
           <parent link="wrist_1_link"/>
           <child link="virtual_wrist_1_link"/>
       </joint>
-    <!-- </xacro:if> -->
+    </xacro:if>
 </robot>
