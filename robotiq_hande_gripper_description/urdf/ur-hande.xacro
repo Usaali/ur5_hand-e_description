@@ -52,21 +52,45 @@
       <!-- virtual joints for RMPs-->
       <link name="virtual_shoulder_link"/>
       <joint name="virtual_shoulder_joint" type="fixed">
-          <origin rpy="0 0 0" xyz="0 -0.135 0"/>
+          <origin rpy="0 0 0" xyz="0 -0.138 0"/>
           <parent link="shoulder_link"/>
           <child link="virtual_shoulder_link"/>
       </joint>
       <link name="virtual_forearm_link"/>
       <joint name="virtual_forearm_joint" type="fixed">
-          <origin rpy="0 0 0" xyz="0 0 0.135"/>
+          <origin rpy="0 0 0" xyz="0 0 0.138"/>
           <parent link="forearm_link"/>
           <child link="virtual_forearm_link"/>
       </joint>
       <link name="virtual_wrist_1_link"/>
       <joint name="virtual_wrist_1_joint" type="fixed">
-          <origin rpy="0 0 0" xyz="0 0 -0.13"/>
+          <origin rpy="0 0 0" xyz="0 0 -0.127"/>
           <parent link="wrist_1_link"/>
           <child link="virtual_wrist_1_link"/>
       </joint>
     </xacro:if>
+
+    <xacro:if value="${'$(arg robot_model)' == 'ur3e_robot'}">
+      <!-- virtual joints for RMPs-->
+      <link name="virtual_shoulder_link"/>
+      <joint name="virtual_shoulder_joint" type="fixed">
+          <origin rpy="0 0 0" xyz="0 -0.12 0"/>
+          <parent link="shoulder_link"/>
+          <child link="virtual_shoulder_link"/>
+      </joint>
+      <link name="virtual_forearm_link"/>
+      <joint name="virtual_forearm_joint" type="fixed">
+          <origin rpy="0 0 0" xyz="0 0 0.12"/>
+          <parent link="forearm_link"/>
+          <child link="virtual_forearm_link"/>
+      </joint>
+      <link name="virtual_wrist_1_link"/>
+      <joint name="virtual_wrist_1_joint" type="fixed">
+          <origin rpy="0 0 0" xyz="0 0 -0.12"/>
+          <parent link="wrist_1_link"/>
+          <child link="virtual_wrist_1_link"/>
+      </joint>
+    </xacro:if>
+
+
 </robot>
